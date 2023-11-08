@@ -4,7 +4,7 @@ import { Hero } from '../../components/hero/hero'
 import { Header } from '../../components/header/header'
 import { Navbar } from '../../components/navbar/navbar'
 import {HomeLayout} from '../../layout/home/home_layout'
-import { RoomsCards } from '../../components/rooms/rooms_cards/rooms_cards'
+import { RoomsWidget } from '../../components/rooms/rooms_widget/rooms_widget'
 
 export const HomeScreen = () => {
   return (
@@ -14,6 +14,7 @@ export const HomeScreen = () => {
         <Header />
         <Hero />
       </HomeLayout>
+      <RoomsWidget />
     </>
   )
 }

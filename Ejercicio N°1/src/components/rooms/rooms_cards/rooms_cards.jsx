@@ -1,13 +1,24 @@
 import React from 'react'
+import { RoomCardsContainer } from './styles'
+import { InputsContainer } from './styles'
 
-export const RoomsCards = (img, title, description) => {
+
+export const RoomsCards = ({img, name, description, price}) => {
   return (
-    <div>
-        <img src="{img}" alt="{title}" />
-        <h3>{title}</h3>
+    <RoomCardsContainer>
+        <img src={img} alt={name}/>
+        <div>
+        <h3>{name}</h3>
         <p>{description}</p>
+        <InputsContainer>
+        <label htmlFor="dias">Cuantos dias quieres hospedarte?</label>
+  <input type="number" id="dias"/>
+        <label htmlFor="fecha-inicial">Fecha inicial:</label>
+  <input type="date" id="fecha-inicial"/>
+  </InputsContainer>
         <button>Reservar</button>
-        <input type="date" name="" id="" />
-    </div>
+        <p>${price}</p> 
+        </div>
+    </RoomCardsContainer>
   )
 }
