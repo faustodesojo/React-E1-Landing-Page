@@ -5,6 +5,7 @@ import { Header } from '../../components/header/header'
 import { Navbar } from '../../components/navbar/navbar'
 import {HomeLayout} from '../../layout/home/home_layout'
 import { RoomsWidget } from '../../components/rooms/rooms_widget/rooms_widget'
+import { Footer } from '../../footer/footer'
 
 export const HomeScreen = () => {
   return (
@@ -15,6 +16,7 @@ export const HomeScreen = () => {
         <Hero />
       </HomeLayout>
       <RoomsWidget />
+      <Footer />
     </>
   )
 }

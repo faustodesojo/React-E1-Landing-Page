@@ -2,7 +2,7 @@ import React from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { IoBed } from "react-icons/io5";
 import { HomeContainer, NavbarContainer, NavbarLinks } from "./styles";
-import { motion } from "framer-motion";
+import { NavbarLink } from "./styles";
 
 export const Navbar = () => {
   return (
@@ -13,6 +13,12 @@ export const Navbar = () => {
           alt="logo-hotel"
           />
       </div>
+      <NavbarLink>
+          <li>Inicio</li>
+          <li>Habitaciones</li>
+          <li>Servicios</li>
+          <li>Galeria</li>
+      </NavbarLink>
       <NavbarLinks>
         <HomeContainer>
           <button>

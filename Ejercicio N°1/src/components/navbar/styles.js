@@ -27,13 +27,12 @@ export const NavbarLinks = styled.div`
   justify-content: space-around;
   height: 50px;
   width: 400px;
-  padding: 0 2rem;
 `;
 
 export const HomeContainer = styled(NavbarLinks)`
   display: flex;
   align-items: center;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 `;
@@ -43,7 +42,29 @@ export const MenuToggle = styled.div`
   cursor: pointer;
   font-size: 1.5rem;
   color: #fff;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: flex;
+  }
+`;
+
+export const NavbarLink = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  li {
+    list-style: none;
+  }
+  li:hover {
+    transition: 0.3s;
+    text-decoration: underline;
+    color: var(--background-lightblue);
+  }
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;

@@ -7,6 +7,7 @@ export const HeroContainer = styled.div`
   height: 500px;
   gap: 50px;
   width: 100%;
+  margin-bottom: 100px;
   img {
     width: 750px;
     height: 450px;
@@ -18,6 +19,7 @@ export const HeroContainer = styled.div`
   }
   h1 {
     margin-bottom: 50px;
+    text-align: center;
   }
   @media (max-width: 1024px) {
     margin-top: 100px;
