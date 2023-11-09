@@ -24,6 +24,7 @@ export const NavbarContainer = styled.div`
 export const NavbarLinks = styled.div`
   display: flex;
   align-items: center;
+  margin-right: 20px;
   justify-content: space-around;
   height: 50px;
   width: 400px;
