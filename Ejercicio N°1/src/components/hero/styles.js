@@ -9,8 +9,8 @@ export const HeroContainer = styled.div`
   width: 100%;
   margin-bottom: 100px;
   img {
-    width: 750px;
-    height: 450px;
+    width: 650px;
+    height: 350px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
