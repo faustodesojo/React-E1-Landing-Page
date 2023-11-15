@@ -24,8 +24,8 @@ export const NavbarContainer = styled.div`
 export const NavbarLinks = styled.div`
   display: flex;
   align-items: center;
-  margin-right: 20px;
-  justify-content: space-around;
+  margin-right: 50px;
+  justify-content: end;
   height: 50px;
   width: 400px;
 `;
@@ -33,25 +33,26 @@ export const NavbarLinks = styled.div`
 export const HomeContainer = styled(NavbarLinks)`
   display: flex;
   align-items: center;
+  gap: 2rem;
   @media (max-width: 1024px) {
     display: none;
   }
 `;
 
-export const MenuToggle = styled.div`
-  display: none;
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: #fff;
-  @media (max-width: 1024px) {
-    display: flex;
-  }
+export const HomeContainerResponsive = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 100%;
+  margin-right: 30px;
+  margin-top: 20px;
 `;
 
 export const NavbarLink = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 100%;
   gap: 60px;
   color: #fff;
   text-decoration: none;
@@ -60,12 +61,63 @@ export const NavbarLink = styled.div`
   li {
     list-style: none;
   }
-  li:hover {
-    transition: 0.3s;
-    text-decoration: underline;
-    color: var(--background-lightblue);
-  }
+`;
+
+export const NavbarList = styled.ul`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   @media (max-width: 1024px) {
-    display: none;
+    width: 100vw;
+    height: 90vh;
+    position: absolute;
+    top: 80px;
+    right: ${(props) => (props.click ? "0" : "-100%")};
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #242424;
+    transition: all 0.5s ease;
+    margin-right: 20px;
+  }
+`;
+
+export const Links = styled.li`
+  height: 100%;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  &:hover {
+    background-color: var(--background-lightblue);
+    border-bottom: 2px solid #fff;
+    transition: 0.4s ease-in;
+  }
+
+  @media (max-width: 1024px) {
+    text-decoration: none;
+    width: 100%;
+    height: 70px;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+  }
+`;
+
+export const Link = styled.a`
+  text-decoration: none;
+  color: #fff;
+`;
+
+export const HamburguerMenu = styled.div`
+  display: none;
+  font-size: 2.5rem;
+  color: #fff;
+  @media (max-width: 1024px) {
+    display: block;
   }
 `;

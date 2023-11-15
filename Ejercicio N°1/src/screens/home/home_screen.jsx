@@ -14,8 +14,8 @@ export const HomeScreen = () => {
       <HomeLayout>
         <Header />
         <Hero />
-      </HomeLayout>
       <RoomsWidget />
+      </HomeLayout>
       <Footer />
     </>
   )
