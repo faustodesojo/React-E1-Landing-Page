@@ -20,8 +20,8 @@ export const rooms = [
     name: "Mono Suite",
     img: "https://yourfiles.cloud/uploads/8040a1823879ec456629704a606ab825/hobitacion-mono.jpg",
     description:
-      "Mono Suit (para2 personas) es una opción más económica de hospedaje que aún ofrece una experiencia de calidad y comodidad en un espacio compacto. Estas habitaciones suelen ser elegantes y funcionales, con un diseño inteligente que optimiza el espacio. Incluyen una cómoda área de descanso con una cama de alta calidad, una pequeña zona de estar y una cocina básica con electrodomésticos esenciales, como un minibar y un microondas.",
-    price: 100,
+      "Mono Suit (para 2 personas) es una opción más económica de hospedaje que aún ofrece una experiencia de calidad y comodidad en un espacio compacto. Estas habitaciones suelen ser elegantes y funcionales, con un diseño inteligente que optimiza el espacio. Incluyen una cómoda área de descanso con una cama de alta calidad, una pequeña zona de estar y una cocina básica con electrodomésticos esenciales, como un minibar y un microondas.",
+    price: 1500,
   },
   {
     id: 4,

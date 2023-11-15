@@ -5,4 +5,5 @@ export const RoomWidgetContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  margin-top: 200px;
 `;

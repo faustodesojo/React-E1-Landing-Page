@@ -29,18 +29,24 @@ export const RoomCardsContainer = styled.div`
     height: 700px;
     align-items: center;
     text-align: center;
+
     img {
-      width: 400px;
+      width: 500px;
       height: 300px;
+    }
+    @media (max-width: 768px) {
+      height: 1000px;
+      img {
+        max-width: 100%;
+      }
     }
     @media (max-width: 425px) {
       height: 900px;
       justify-content: space-between;
       text-align: center;
-    }
-    img {
-      width: 100%;
-    }
+      img {
+        width: 100%;
+      }
   }
 `;
 
@@ -51,6 +57,17 @@ export const InputsContainer = styled.div`
   margin-bottom: 20px;
   input[type="number"] {
     width: 7%;
+  }
+  @media (max-width: 768px) {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto;
+      
+    }
   }
 `;
 
