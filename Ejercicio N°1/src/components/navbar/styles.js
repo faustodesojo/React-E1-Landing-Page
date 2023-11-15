@@ -40,12 +40,15 @@ export const HomeContainer = styled(NavbarLinks)`
 `;
 
 export const HomeContainerResponsive = styled.div`
-  display: flex;
+  display: none;
   align-items: center;
   gap: 2rem;
   width: 100%;
   margin-right: 30px;
   margin-top: 20px;
+  @media (max-width: 1024px) {
+    display: flex;
+  }
 `;
 
 export const NavbarLink = styled.div`
