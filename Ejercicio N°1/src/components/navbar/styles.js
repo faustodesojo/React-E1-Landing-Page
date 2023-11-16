@@ -19,6 +19,13 @@ export const NavbarContainer = styled.div`
     object-fit: cover;
     border-radius: 50%;
   }
+  @media (max-width: 1024px) {
+justify-content: center;
+img {
+  
+  margin-right: 61px;
+}
+  }
 `;
 
 export const NavbarLinks = styled.div`
@@ -28,6 +35,9 @@ export const NavbarLinks = styled.div`
   justify-content: end;
   height: 50px;
   width: 400px;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const HomeContainer = styled(NavbarLinks)`
@@ -73,7 +83,7 @@ export const NavbarList = styled.ul`
   justify-content: center;
 
   @media (max-width: 1024px) {
-    width: 100vw;
+    width: 100%;
     height: 90vh;
     position: absolute;
     top: 80px;
@@ -83,7 +93,6 @@ export const NavbarList = styled.ul`
     padding: 2rem;
     background-color: #242424;
     transition: all 0.5s ease;
-    margin-right: 20px;
   }
 `;
 
@@ -122,5 +131,8 @@ export const HamburguerMenu = styled.div`
   color: #fff;
   @media (max-width: 1024px) {
     display: block;
+    position: absolute;
+    top: 30px;
+    right: 80px;
   }
 `;

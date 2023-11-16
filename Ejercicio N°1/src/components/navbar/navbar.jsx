@@ -20,6 +20,7 @@ export const Navbar = () => {
   const ChangeClick = () => {
     setClick(!click);
   };
+  
   return (
     <NavbarContainer>
       <div>
@@ -28,6 +29,9 @@ export const Navbar = () => {
           alt="logo-hotel"
         />
       </div>
+        <HamburguerMenu onClick={ChangeClick}>
+          {click ? <IoClose /> : <RxHamburgerMenu />}
+        </HamburguerMenu>
       <NavbarLink>
         <NavbarList click={click}>
           <Links onClick={ChangeClick}>
@@ -67,9 +71,6 @@ export const Navbar = () => {
             <span>Reservas</span>
           </button>
         </HomeContainer>
-        <HamburguerMenu onClick={ChangeClick}>
-          {click ? <IoClose /> : <RxHamburgerMenu />}
-        </HamburguerMenu>
       </NavbarLinks>
     </NavbarContainer>
   );
