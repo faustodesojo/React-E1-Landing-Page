@@ -11,6 +11,7 @@ import {
   Links,
   Link,
   HomeContainerResponsive,
+  NavImg
 } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
 
@@ -23,12 +24,12 @@ export const Navbar = () => {
   
   return (
     <NavbarContainer>
-      <div>
+      <NavImg>
         <img
           src="https://yourfiles.cloud/uploads/db9a794ba66478de641d99c640fae616/logo-hotel.png"
           alt="logo-hotel"
         />
-      </div>
+      </NavImg>
         <HamburguerMenu onClick={ChangeClick}>
           {click ? <IoClose /> : <RxHamburgerMenu />}
         </HamburguerMenu>

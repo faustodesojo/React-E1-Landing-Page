@@ -13,19 +13,22 @@ export const NavbarContainer = styled.div`
   top: 0;
   left: 0;
   z-index: 100;
-  img {
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
-    border-radius: 50%;
-  }
   @media (max-width: 1024px) {
 justify-content: center;
+  }
+`;
+
+export const NavImg = styled.div`
 img {
-  
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+@media (max-width: 1024px) {
+  z-index: 100;
   margin-right: 61px;
 }
-  }
 `;
 
 export const NavbarLinks = styled.div`
@@ -86,7 +89,7 @@ export const NavbarList = styled.ul`
     width: 100%;
     height: 100vh;
     position: absolute;
-    top: 80px;
+    top: 0;
     right: ${(props) => (props.click ? "0" : "-100%")};
     flex-direction: column;
     align-items: center;
@@ -134,5 +137,6 @@ export const HamburguerMenu = styled.div`
     position: absolute;
     top: 30px;
     right: 80px;
+    z-index: 100;
   }
 `;
