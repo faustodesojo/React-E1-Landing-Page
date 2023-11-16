@@ -90,7 +90,7 @@ export const NavbarList = styled.ul`
     right: ${(props) => (props.click ? "0" : "-100%")};
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 0 2rem 2rem 2rem;
     background-color: #242424;
     transition: all 0.5s ease;
   }
