@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { IoBed, IoClose } from "react-icons/io5";
 import {
@@ -14,14 +14,11 @@ import {
   NavImg
 } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { BurguerContext } from "../../context/hamburguer_menu";
 
 export const Navbar = () => {
-  const [click, setClick] = useState(false);
+  const { click, changeClick } = useContext(BurguerContext);
 
-  const ChangeClick = () => {
-    setClick(!click);
-  };
-  
   return (
     <NavbarContainer>
       <NavImg>
@@ -30,35 +27,35 @@ export const Navbar = () => {
           alt="logo-hotel"
         />
       </NavImg>
-        <HamburguerMenu onClick={ChangeClick}>
-          {click ? <IoClose /> : <RxHamburgerMenu />}
-        </HamburguerMenu>
+      <HamburguerMenu onClick={changeClick}>
+        {click ? <IoClose /> : <RxHamburgerMenu />}
+      </HamburguerMenu>
       <NavbarLink>
         <NavbarList click={click}>
-          <Links onClick={ChangeClick}>
+          <Links onClick={changeClick}>
             <Link>Inicio</Link>
           </Links>
-          <Links onClick={ChangeClick}>
+          <Links onClick={changeClick}>
             Habitaciones<Link></Link>
           </Links>
-          <Links onClick={ChangeClick}>
+          <Links onClick={changeClick}>
             Servicios<Link></Link>
           </Links>
-          <Links onClick={ChangeClick}>
+          <Links onClick={changeClick}>
             Galeria<Link></Link>
           </Links>
           <div>
-          <HomeContainerResponsive>
-          <button>
-            <BiSolidUser></BiSolidUser>
-            <span>Registrarse</span>
-          </button>
-          <button>
-            <IoBed></IoBed>
-            <span>Reservas</span>
-          </button>
-        </HomeContainerResponsive>
-            </div>
+            <HomeContainerResponsive>
+              <button>
+                <BiSolidUser></BiSolidUser>
+                <span>Registrarse</span>
+              </button>
+              <button>
+                <IoBed></IoBed>
+                <span>Reservas</span>
+              </button>
+            </HomeContainerResponsive>
+          </div>
         </NavbarList>
       </NavbarLink>
       <NavbarLinks>
