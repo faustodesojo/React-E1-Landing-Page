@@ -1,9 +1,14 @@
-import React from 'react'
+import { ContentContainerStyled } from './styles'
+import { Navbar } from '../../components/navbar/navbar'
+import {React} from 'react'
+import { Footer } from "../../footer/footer";
 
 export const HomeLayout = ({children}) => {
   return (
-    <div>
+    <ContentContainerStyled>
+      <Navbar />
         {children}
-    </div>
+        <Footer />
+    </ContentContainerStyled>
   )
 }

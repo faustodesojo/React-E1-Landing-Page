@@ -1,12 +1,10 @@
-
-import { HomeScreen } from './screens/home/home_screen.jsx'
-
+import React from "react";
+import AppRoutes  from './routes/Routes';
 
 function App() {
-
-  return (
-<HomeScreen></HomeScreen>
+  return (   
+    <AppRoutes />
   )
 }
 
-export default App
+export default App;

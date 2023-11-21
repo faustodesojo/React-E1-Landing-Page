@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const NavbarContainer = styled.div`
@@ -111,7 +112,7 @@ export const Links = styled.li`
   }
 `;
 
-export const Link = styled.a`
+export const LinkItem = styled(Link)`
   text-decoration: none;
   color: #fff;
 `;

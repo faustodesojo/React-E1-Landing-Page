@@ -9,7 +9,7 @@ import {
   HamburguerMenu,
   NavbarList,
   Links,
-  Link,
+  LinkItem,
   HomeContainerResponsive,
 } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -31,16 +31,16 @@ export const Navbar = () => {
       <NavbarLink>
         <NavbarList click={click}>
           <Links onClick={ChangeClick}>
-            <Link>Inicio</Link>
+            <LinkItem to="/" >Inicio</LinkItem>
           </Links>
           <Links onClick={ChangeClick}>
-            Habitaciones<Link></Link>
+           <LinkItem to="rooms"> Habitaciones</LinkItem>
           </Links>
           <Links onClick={ChangeClick}>
-            Servicios<Link></Link>
+            <LinkItem to="contact">Contacto</LinkItem>
           </Links>
           <Links onClick={ChangeClick}>
-            Galeria<Link></Link>
+           <LinkItem to="about">Sobre Nosotros</LinkItem>
           </Links>
           <div>
           <HomeContainerResponsive>

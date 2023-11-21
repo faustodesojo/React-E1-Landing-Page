@@ -14,6 +14,7 @@ export const RoomCardsContainer = styled.div`
   img {
     width: 350px;
     height: 250px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
   h3 {
     color: var(--background-lightblue);
@@ -66,7 +67,6 @@ export const InputsContainer = styled.div`
       flex-direction: column;
       text-align: center;
       margin: 0 auto;
-      
     }
   }
 `;

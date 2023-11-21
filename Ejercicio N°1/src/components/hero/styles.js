@@ -17,20 +17,25 @@ export const HeroContainer = styled.div`
   div {
     width: 600px;
   }
-  h1 {
+  h2 {
     margin-bottom: 50px;
     text-align: center;
+    font-size: 3rem;
   }
   @media (max-width: 1024px) {
     margin-top: 100px;
     flex-direction: column;
+    height: 800px;
+    h2 {
+      font-size: 2.5rem;
+    }
   }
   @media (max-width: 768px) {
     height: 800px;
     div {
       width: 100%;
     }
-    h1 {
+    h2 {
       font-size: 2.5rem;
     }
     p {
