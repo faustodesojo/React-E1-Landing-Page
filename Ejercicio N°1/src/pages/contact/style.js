@@ -52,6 +52,8 @@ export const RedesContainer = styled.div`
     @media (max-width: 1024px) {
       flex-wrap: wrap;
     }
+    @media (max-width: 425px) {
+    }
     `
 export const FormContainer = styled.div`
   display: flex;
@@ -60,8 +62,7 @@ export const FormContainer = styled.div`
   align-items: center;
   text-align: center;
   margin-top: 20px;
-  width: 500px;
-  max-width: 400px;
+  max-width: 500px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -100,8 +101,8 @@ export const FormContainer = styled.div`
       transition: 0.7s;
       background-color: var(--background-lightblue);
     } 
-  }
-  @media (max-width: 1024px) {
-    width: 100%;
+    @media (max-width: 425px) {
+      width: 100%;
+    }
   }
 `;
