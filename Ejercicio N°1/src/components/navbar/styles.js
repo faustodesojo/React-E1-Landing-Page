@@ -20,6 +20,20 @@ export const NavbarContainer = styled.div`
     object-fit: cover;
     border-radius: 50%;
   }
+
+  @media (max-width: 1024px) {
+    opacity: 0.9;
+    height: 80px;
+    img {
+      position: absolute; 
+      top: 0;
+      left: 0;
+      right:32px;
+      bottom: 0;
+      margin: auto;
+      z-index: 100;
+    }
+  }
 `;
 
 export const NavbarLinks = styled.div`
@@ -77,11 +91,11 @@ export const NavbarList = styled.ul`
     width: 100vw;
     height: 90vh;
     position: absolute;
-    top: 80px;
+    top: 60px;
     right: ${(props) => (props.click ? "0" : "-100%")};
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
+    padding: 0 2rem;
     background-color: #242424;
     transition: all 0.5s ease;
     margin-right: 20px;
