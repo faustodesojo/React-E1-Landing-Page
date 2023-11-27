@@ -1,27 +1,43 @@
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
+display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 200px;
+    margin-top: 100px;
+    background-color: #242424;
+    flex-wrap: wrap;
+  body {
+   margin: 0;
+   padding: 0;
+  }
   h2 {
     font-size: 3rem;
+    color: #fff;
   }
   p {
     font-style: italic;
+    color: #fff;
+    font-size: 1.5rem;
   }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
   text-align: center; 
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   width: 80%; 
-  background-color: #fff;
+  background-image: url("https://blogdelhotel.files.wordpress.com/2015/07/kdp18119.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   @media (max-width: 1024px) {
     flex-direction: column;
     width: 100%;
@@ -35,8 +51,9 @@ export const RedesContainer = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-top: 20px;
-  max-width: 400px;
+  margin-bottom: 20px;
+  width: 500px;
+  opacity: 0.9;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -49,6 +66,19 @@ export const RedesContainer = styled.div`
     text-align: center;
     list-style: none;
     gap: 20px;
+    li{
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.6s ease;
+    }
+    li:hover {
+     background-color: #128CBA;
+     color: #fff;
+     cursor: pointer;}
+     transition: all 0.6s ease;
+    }
     @media (max-width: 1024px) {
       flex-wrap: wrap;
     }
@@ -58,16 +88,18 @@ export const RedesContainer = styled.div`
 export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
   margin-top: 20px;
-  max-width: 500px;
+  width: 500px;
+  opacity: 0.9;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   text-align: center;
+  margin-bottom: 100px;
   label {
     font-weight: bold;
     margin-bottom: 5px;
