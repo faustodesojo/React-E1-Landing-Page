@@ -63,6 +63,7 @@ export const HomeContainerResponsive = styled.div`
   margin-top: 20px;
   @media (max-width: 1024px) {
     display: flex;
+    margin-bottom: 20px;
   }
 `;
 
