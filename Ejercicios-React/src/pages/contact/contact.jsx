@@ -1,7 +1,7 @@
 import React from "react";
 import {
   ContactContainer,
-  FormContainer,
+  FormContainerStyled,
   InfoContainer,
   RedesContainer,
 } from "./style";
@@ -20,7 +20,7 @@ export const Contact = () => {
         <p>¿Alguna Consulta? ¡Te ayudamos con lo que necesites!</p>
       </div>
       <InfoContainer>
-        <FormContainer action="">
+        <FormContainerStyled action="">
           <label htmlFor="">Nombre</label>
           <input type="text" />
           <label htmlFor="">Email</label>
@@ -29,8 +29,8 @@ export const Contact = () => {
           <input type="text" />
           <label htmlFor="">Mensaje</label>
           <textarea name="" id="" cols="30" rows="10"></textarea>
-          <input type="submit" value="Enviar" />
-        </FormContainer>
+          <button>Enviar</button>
+        </FormContainerStyled>
         <RedesContainer>
           <h3>Redes Sociales</h3>
           <div>

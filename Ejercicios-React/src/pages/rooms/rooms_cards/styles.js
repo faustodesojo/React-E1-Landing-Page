@@ -4,7 +4,8 @@ export const RoomCardsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 400px;
+  gap: 200px;
+  height: 450px;
   margin-top: 150px;
   background-color: var(--background-lightgray);
   h3 {
@@ -30,6 +31,7 @@ export const RoomCardsContainer = styled.div`
     height: 700px;
     align-items: center;
     text-align: center;
+    gap: 0;
 
     img {
       width: 500px;
@@ -58,6 +60,11 @@ export const InputsContainer = styled.div`
   margin-bottom: 20px;
   input[type="number"] {
     width: 7%;
+    height: 30px;
+  }
+  input[type="date"] {
+    width: 50%;
+    height: 30px;
   }
   @media (max-width: 768px) {
     div {
@@ -79,5 +86,8 @@ export const PriceContainer = styled.div`
 `;
 
 export const RoomInfoContainer = styled.div`
-  max-width: 700px;
+  width: 100%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;

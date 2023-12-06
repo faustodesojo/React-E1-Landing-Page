@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Anek+Latin:wght@300&family=Trispace:wght@300&display=swap');
+
+*{
+    font-family: 'Anek Latin', sans-serif;
+    font-family: 'Trispace', sans-serif;
+  }

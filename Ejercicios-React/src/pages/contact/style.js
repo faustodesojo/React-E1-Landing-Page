@@ -52,7 +52,7 @@ export const RedesContainer = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 20px;
-  width: 500px;
+  width: 600px;
   opacity: 0.9;
   padding: 20px;
   background-color: #fff;
@@ -66,9 +66,15 @@ export const RedesContainer = styled.div`
     text-align: center;
     list-style: none;
     gap: 20px;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
     li{
       background-color: #fff;
       padding: 10px;
+      border: 1px solid #128CBA;
+      color: #128CBA;
+      width:100px;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.6s ease;
@@ -81,11 +87,12 @@ export const RedesContainer = styled.div`
     }
     @media (max-width: 1024px) {
       flex-wrap: wrap;
-    }
-    @media (max-width: 425px) {
+      width: 85vw;
+      box-shadow: none;
+      margin: 20px 20px
     }
     `
-export const FormContainer = styled.div`
+export const FormContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -112,7 +119,7 @@ export const FormContainer = styled.div`
     border: 1px solid #ccc;
     border-radius: 5px;
   }
-  input[type="submit"] {
+  button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
@@ -133,8 +140,18 @@ export const FormContainer = styled.div`
       transition: 0.7s;
       background-color: var(--background-lightblue);
     } 
-    @media (max-width: 425px) {
-      width: 100%;
-    }
   }
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    width: 85vw;
+    box-shadow: none;
+    margin: 20px 20px;
+    input, textarea{
+      width: 80%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+   }
 `;
