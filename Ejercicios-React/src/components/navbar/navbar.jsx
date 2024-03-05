@@ -14,8 +14,27 @@ import {
 } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BurguerContext } from "../../context/hamburguer_menu";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../context/ShoppingCartContext";
 
 export const Navbar = () => {
+  const [cart, setCart] = useContext(CartContext);
+
+  const quantity = cart.reduce((acc, curr) => {
+    if (!isNaN(curr.quantity)) {
+      return acc + curr.quantity;
+    }
+    return acc;
+  }, 0);
+  // const quantity = cart.reduce((acc, curr) => {
+  //   if (!isNaN(curr.quantity)) {
+  //     return acc + curr.quantity;
+  //   } else {
+  //     return acc;
+  //   }
+  // }, 0);
+  
+
   const { click, changeClick } = useContext(BurguerContext);
 
   return (
@@ -46,10 +65,13 @@ export const Navbar = () => {
                 <BiSolidUser></BiSolidUser>
                 <span>Registrarse</span>
               </button>
-              <button>
-                <IoBed></IoBed>
-                <span>Reservas</span>
-              </button>
+              <Link to={"/carrito"}>
+                <button>
+                  <IoBed></IoBed>
+                  <span>Reservas</span>
+                  <span>{quantity}</span>
+                </button>
+              </Link>
             </HomeContainerResponsive>
           </div>
         </NavbarList>
@@ -60,10 +82,13 @@ export const Navbar = () => {
             <BiSolidUser></BiSolidUser>
             <span>Registrarse</span>
           </button>
-          <button>
-            <IoBed></IoBed>
-            <span>Reservas</span>
-          </button>
+          <Link to={"/carrito"}>
+            <button>
+              <IoBed></IoBed>
+              <span>Reservas</span>
+              <span>{quantity}</span>
+            </button>
+          </Link>
         </HomeContainer>
         <HamburguerMenu onClick={changeClick}>
           {click ? <IoClose /> : <RxHamburgerMenu />}

@@ -6,4 +6,5 @@ export const RoomWidgetContainer = styled.div`
   align-items: center;
   text-align: center;
   margin-top: 200px;
+  height: 100vh;
 `;

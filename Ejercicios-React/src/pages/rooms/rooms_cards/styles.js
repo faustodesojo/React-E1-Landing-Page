@@ -6,7 +6,7 @@ export const RoomCardsContainer = styled.div`
   justify-content: space-around;
   gap: 200px;
   height: 450px;
-  margin-top: 150px;
+  margin-bottom: 150px;
   background-color: var(--background-lightgray);
   h3 {
     text-align: center;
@@ -28,7 +28,7 @@ export const RoomCardsContainer = styled.div`
   }
   @media (max-width: 1024px) {
     flex-direction: column;
-    height: 700px;
+    height: 900px;
     align-items: center;
     text-align: center;
     gap: 0;
@@ -63,7 +63,7 @@ export const InputsContainer = styled.div`
     height: 30px;
   }
   input[type="date"] {
-    width: 50%;
+    width: 105px;
     height: 30px;
   }
   @media (max-width: 768px) {

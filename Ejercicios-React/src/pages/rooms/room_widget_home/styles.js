@@ -10,5 +10,5 @@ export const RoomWidgetContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  margin: 20px 0;
-  `
+  margin: 120px 0;
+`;

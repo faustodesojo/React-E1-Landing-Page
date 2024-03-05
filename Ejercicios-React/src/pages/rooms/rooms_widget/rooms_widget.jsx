@@ -1,6 +1,6 @@
 import { RoomsCards } from '../rooms_cards/rooms_cards'
 import { rooms } from '../../../data/rooms'
-import { RoomWidgetContainer } from './styles'
+import {RoomWidgetContainer } from './styles'
 
 export const RoomsWidget = () => {
     return (

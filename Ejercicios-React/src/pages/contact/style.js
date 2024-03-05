@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
 export const ContactContainer = styled.div`
-display: flex;
-  flex-direction: column;
+  display: flex;
+  // flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-    margin-top: 100px;
-    background-color: #242424;
-    flex-wrap: wrap;
+  margin-top: 100px;
+  background-color: #242424;
+  flex-wrap: wrap;
   body {
-   margin: 0;
-   padding: 0;
+    margin: 0;
+    padding: 0;
   }
   h2 {
     font-size: 3rem;
@@ -22,26 +22,43 @@ display: flex;
     color: #fff;
     font-size: 1.5rem;
   }
+  @media (max-width: 768px) {
+    height: 100%;
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 100px;
+    background-color: #242424;
+    flex-wrap: wrap;
+  }
 `;
 
 export const InfoContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: column;
+  height: 100%;
   align-items: center;
-  text-align: center; 
+  text-align: center;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
-  width: 80%; 
+  width: 80%;
   background-image: url("https://blogdelhotel.files.wordpress.com/2015/07/kdp18119.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   @media (max-width: 1024px) {
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
+    height: 100vh;
+    padding: 120px 0;
     box-shadow: none;
+  }
+  @media (max-width: 768px) {
+    padding: none;
   }
 `;
 
@@ -69,29 +86,30 @@ export const RedesContainer = styled.div`
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
-    li{
+    li {
       background-color: #fff;
       padding: 10px;
-      border: 1px solid #128CBA;
-      color: #128CBA;
-      width:100px;
+      border: 1px solid #128cba;
+      color: #128cba;
+      width: 100px;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.6s ease;
     }
     li:hover {
-     background-color: #128CBA;
-     color: #fff;
-     cursor: pointer;}
-     transition: all 0.6s ease;
+      background-color: #128cba;
+      color: #fff;
+      cursor: pointer;
     }
-    @media (max-width: 1024px) {
-      flex-wrap: wrap;
-      width: 85vw;
-      box-shadow: none;
-      margin: 20px 20px
-    }
-    `
+    transition: all 0.6s ease;
+  }
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+    width: 85vw;
+    box-shadow: none;
+    margin: 20px 20px;
+  }
+`;
 export const FormContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
@@ -139,19 +157,12 @@ export const FormContainerStyled = styled.div`
       border-color: #0d7901;
       transition: 0.7s;
       background-color: var(--background-lightblue);
-    } 
+    }
   }
   @media (max-width: 1024px) {
     flex-wrap: wrap;
     width: 85vw;
     box-shadow: none;
     margin: 20px 20px;
-    input, textarea{
-      width: 80%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-   }
+  }
 `;
