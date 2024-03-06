@@ -8,30 +8,43 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const [cart, setCart] = useContext(CartContext);
   const [numberOfNights, setNumberOfNights] = useState(2);
   const [selectedStartDate, setSelectedStartDate] = useState("");
-  const [selectedEndDate, setSelectedEndDate] = useState(""); 
+  const [selectedEndDate, setSelectedEndDate] = useState("");
   const [startDateError, setStartDateError] = useState(false);
   const [minimumNightsError, setMinimumNightsError] = useState(false);
   const addToCart = () => {
     if (selectedStartDate !== "" && selectedEndDate !== "") {
       setCart((reservas) => {
         const reservaEncontrada = reservas.find((reserva) => reserva.id === id);
-        if (reservaEncontrada){
-          return reservas.map((reserva)=> {
-            if(reserva.id === id){
-              return {...reserva, quantity: reserva.quantity + 1};
+        if (reservaEncontrada) {
+          return reservas.map((reserva) => {
+            if (reserva.id === id) {
+              return { ...reserva, quantity: reserva.quantity + 1 };
             } else {
               return reserva;
             }
           });
         } else {
-          return [...reservas, {id, quantity: 1, price, img, name, description, startDate: selectedStartDate, endDate: selectedEndDate, guests}];
+          return [
+            ...reservas,
+            {
+              id,
+              quantity: 1,
+              price,
+              img,
+              name,
+              description,
+              startDate: selectedStartDate,
+              endDate: selectedEndDate,
+              guests,
+            },
+          ];
         }
       });
     } else {
       setStartDateError(true);
     }
   };
-  
+
   const handleStartDateChange = (date) => {
     setSelectedStartDate(date);
     const endDate = new Date(date);
@@ -41,17 +54,15 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
     } else {
       setMinimumNightsError(false);
     }
-  
-    setSelectedEndDate(endDate.toISOString().split('T')[0]);
+
+    setSelectedEndDate(endDate.toISOString().split("T")[0]);
     setStartDateError(false);
   };
-  
 
   const handleNumberOfNightsChange = (value) => {
     setNumberOfNights(value);
     handleStartDateChange(selectedStartDate);
   };
-
 
   const total = price * numberOfNights;
 
@@ -64,37 +75,39 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
         <InputsContainer>
           <div>
             <label htmlFor="dias">Cuantos días quieres hospedarte?</label>
-            <input 
-              type="number" 
-              id="dias" 
-              value={numberOfNights} 
-              onChange={(e) => handleNumberOfNightsChange(parseInt(e.target.value))}
+            <input
+              type="number"
+              id="dias"
+              value={numberOfNights}
+              onChange={(e) =>
+                handleNumberOfNightsChange(parseInt(e.target.value))
+              }
+              min={2}
             />
             <p>
               Precio (por noche): <span>${price}</span>
             </p>
           </div>
           <div>
-            <label htmlFor="fecha-inicial">Hasta:</label>
-            <input 
-              type="date" 
-              id="fecha-inicial" 
-              value={selectedStartDate} 
+            <label htmlFor="fecha-inicial">Desde:</label>
+            <input
+              type="date"
+              id="fecha-inicial"
+              value={selectedStartDate}
               onChange={(e) => handleStartDateChange(e.target.value)}
             />
-            {startDateError && <p style={{ color: "red" }}>Por favor seleccione la fecha inicial</p>}
-            {minimumNightsError && <p style={{ color: "red" }}>La cantidad mínima de hospedaje son dos días</p>}
           </div>
           <div>
-            <label htmlFor="fecha-final">Desde:</label>
-            <input 
-              type="date" 
-              id="fecha-final" 
-              value={selectedEndDate} 
+            <label htmlFor="fecha-final">Hasta:</label>
+            <input
+              type="date"
+              id="fecha-final"
+              value={selectedEndDate}
               disabled
             />
           </div>
         </InputsContainer>
+        {startDateError && <p style={{ color: "red", textAlign: "center" }}>Por favor seleccione la fecha inicial</p>}
         <PriceContainer>
           <button onClick={addToCart}>Reservar</button>
           <p>Total: ${total}</p>

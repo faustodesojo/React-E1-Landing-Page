@@ -6,7 +6,13 @@ export const CartContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 150px;
-  display: flex;  
+  display: flex; 
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+
 `;
 
 export const ItemContainer = styled.div`
@@ -14,6 +20,7 @@ export const ItemContainer = styled.div`
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
+  width: 500px;
 `;
 
 export const ItemImage = styled.img`

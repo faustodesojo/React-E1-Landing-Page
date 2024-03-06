@@ -5,7 +5,7 @@ export const RoomCardsContainer = styled.div`
   align-items: center;
   justify-content: space-around;
   gap: 200px;
-  height: 450px;
+  height: 550px;
   margin-bottom: 150px;
   background-color: var(--background-lightgray);
   h3 {

@@ -24,7 +24,6 @@ export const Carrito = () => {
 
   return (
     <CartContainer>
-      <div>
         {cart.map((item) => (
           <ItemContainer key={item.id}>
             <div>
@@ -32,7 +31,6 @@ export const Carrito = () => {
             </div>
             <ItemDetails>
               <div>{item.name}</div>
-              {/* <div>{item.description}</div> */}
               <div>Precio por noche: ${item.price}</div>
               <div>Cantidad de noches: {
                 !isNaN(new Date(item.endDate).getTime()) && !isNaN(new Date(item.startDate).getTime()) ? 
@@ -45,7 +43,6 @@ export const Carrito = () => {
             </ItemDetails>
           </ItemContainer>
         ))}
-      </div>
     </CartContainer>
   );
 };
