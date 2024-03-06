@@ -4,7 +4,7 @@ import { InputsContainer } from "./styles";
 import { RoomInfoContainer } from "./styles";
 import { CartContext } from "../../../context/ShoppingCartContext";
 
-export const RoomsCards = ({ img, name, description, price, id }) => {
+export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const [cart, setCart] = useContext(CartContext);
   const [numberOfNights, setNumberOfNights] = useState(2);
   const [selectedStartDate, setSelectedStartDate] = useState("");
@@ -24,7 +24,7 @@ export const RoomsCards = ({ img, name, description, price, id }) => {
             }
           });
         } else {
-          return [...reservas, {id, quantity: 1, price, img, name, description, startDate: selectedStartDate, endDate: selectedEndDate}];
+          return [...reservas, {id, quantity: 1, price, img, name, description, startDate: selectedStartDate, endDate: selectedEndDate, guests}];
         }
       });
     } else {
@@ -52,7 +52,7 @@ export const RoomsCards = ({ img, name, description, price, id }) => {
     handleStartDateChange(selectedStartDate);
   };
 
-  const QuantityPerItem = cart.find((reserva) => reserva.id === id)?.quantity || 0;
+
   const total = price * numberOfNights;
 
   return (
@@ -73,9 +73,6 @@ export const RoomsCards = ({ img, name, description, price, id }) => {
             <p>
               Precio (por noche): <span>${price}</span>
             </p>
-            {QuantityPerItem > 0 && (
-              <div className="item-quantity">{QuantityPerItem}</div>
-            )}
           </div>
           <div>
             <label htmlFor="fecha-inicial">Hasta:</label>

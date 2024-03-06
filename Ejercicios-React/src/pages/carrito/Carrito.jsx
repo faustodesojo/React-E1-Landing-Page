@@ -27,18 +27,21 @@ export const Carrito = () => {
       <div>
         {cart.map((item) => (
           <ItemContainer key={item.id}>
+            <div>
             <ItemImage src={item.img} alt={item.name} />
+            </div>
             <ItemDetails>
               <div>{item.name}</div>
-              <div>{item.description}</div>
+              {/* <div>{item.description}</div> */}
               <div>Precio por noche: ${item.price}</div>
               <div>Cantidad de noches: {
                 !isNaN(new Date(item.endDate).getTime()) && !isNaN(new Date(item.startDate).getTime()) ? 
                 Math.ceil((new Date(item.endDate) - new Date(item.startDate)) / (1000 * 60 * 60 * 24)) : 0
               }</div>
+              <div>Cantidad de personas: {item.guests}</div>
               <div>Precio total: ${calculateTotalPrice(item)}</div>
-              <div>Fecha de inicio: {item.startDate}</div>
-              <div>Fecha de finalización: {item.endDate}</div>
+              <div>Check In: {item.startDate}</div>
+              <div>Check Out: {item.endDate}</div>
             </ItemDetails>
           </ItemContainer>
         ))}

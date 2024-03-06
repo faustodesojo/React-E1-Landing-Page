@@ -6,6 +6,7 @@ export const CartContainer = styled.div`
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 150px;
+  display: flex;  
 `;
 
 export const ItemContainer = styled.div`
