@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../../context/ShoppingCartContext';
-import { CartContainer, ItemContainer, ItemDetails, ItemImage } from './style';
+import { ButtonsContainer, CartContainer, ItemContainer, ItemDetails, Name, SuccessMessage } from './style';
 
 export const Carrito = () => {
   const [cart, setCart] = useContext(CartContext);
+  const [reserveMessage, setReserveMessage] = useState('');
 
   const calculateTotalPrice = (item) => {
     const startDate = new Date(item.startDate);
@@ -17,6 +18,20 @@ export const Carrito = () => {
     }
   };
 
+  const handleReserve = (item) => {
+    setCart((prevCart) => prevCart.filter((i) => i.id !== item.id));
+    setReserveMessage('Reserva exitosa. ¡Muchas gracias!');
+    setTimeout(() => {
+      setReserveMessage('');
+    }, 2000);
+  };
+
+  const handleDelete = (itemToDelete) => {
+    const updatedCart = cart.filter((item) => item !== itemToDelete);
+    setCart(updatedCart);
+  };
+  
+
   const totalPrice = cart.reduce(
     (acc, curr) => acc + calculateTotalPrice(curr),
     0
@@ -25,12 +40,9 @@ export const Carrito = () => {
   return (
     <CartContainer>
         {cart.map((item) => (
-          <ItemContainer key={item.id}>
-            <div>
-            <ItemImage src={item.img} alt={item.name} />
-            </div>
+          <ItemContainer key={item.id} backgroundImage={item.img}>
             <ItemDetails>
-              <div>{item.name}</div>
+              <Name>{item.name}</Name>
               <div>Precio por noche: ${item.price}</div>
               <div>Cantidad de noches: {
                 !isNaN(new Date(item.endDate).getTime()) && !isNaN(new Date(item.startDate).getTime()) ? 
@@ -40,9 +52,14 @@ export const Carrito = () => {
               <div>Precio total: ${calculateTotalPrice(item)}</div>
               <div>Check In: {item.startDate}</div>
               <div>Check Out: {item.endDate}</div>
+              <ButtonsContainer>
+              <button onClick={() => handleDelete(item)}>Eliminar</button>
+              <button onClick={() => handleReserve(item)}>Reservar</button>
+              </ButtonsContainer>
             </ItemDetails>
           </ItemContainer>
         ))}
+        {reserveMessage && <SuccessMessage>{reserveMessage}</SuccessMessage>}
     </CartContainer>
   );
 };

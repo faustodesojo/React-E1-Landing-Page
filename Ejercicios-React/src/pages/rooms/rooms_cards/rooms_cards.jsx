@@ -13,33 +13,20 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const [minimumNightsError, setMinimumNightsError] = useState(false);
   const addToCart = () => {
     if (selectedStartDate !== "" && selectedEndDate !== "") {
-      setCart((reservas) => {
-        const reservaEncontrada = reservas.find((reserva) => reserva.id === id);
-        if (reservaEncontrada) {
-          return reservas.map((reserva) => {
-            if (reserva.id === id) {
-              return { ...reserva, quantity: reserva.quantity + 1 };
-            } else {
-              return reserva;
-            }
-          });
-        } else {
-          return [
-            ...reservas,
-            {
-              id,
-              quantity: 1,
-              price,
-              img,
-              name,
-              description,
-              startDate: selectedStartDate,
-              endDate: selectedEndDate,
-              guests,
-            },
-          ];
-        }
-      });
+      setCart((reservas) => [
+        ...reservas,
+        {
+          id,
+          quantity: 1,
+          price,
+          img,
+          name,
+          description,
+          startDate: selectedStartDate,
+          endDate: selectedEndDate,
+          guests,
+        },
+      ]);
     } else {
       setStartDateError(true);
     }
