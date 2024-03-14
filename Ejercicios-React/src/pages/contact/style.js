@@ -50,6 +50,7 @@ export const InfoContainer = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  margin-bottom: 100px;
   @media (max-width: 1024px) {
     flex-direction: column;
     width: 100vw;
