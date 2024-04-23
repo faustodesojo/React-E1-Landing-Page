@@ -49,3 +49,13 @@ export const Name = styled.div`
   font-style: italic;
   text-decoration: underline;
 `;
+
+export const CheckIn = styled.div`
+  font-weight: bold;
+  color: green;
+`;
+
+export const CheckOut = styled.div`
+  font-weight: bold;
+  color: darkred;
+`;

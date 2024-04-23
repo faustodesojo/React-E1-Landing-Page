@@ -1,6 +1,9 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
-import recommendedSlice from "./recommendedRooms/recommendedSlice";
+import { persistStore, persistReducer } from "redux-persist";
+import { recommendedSlice } from "./recommendedRooms/recommendedSlice";
+import roomsSlice from "./rooms/roomsSlice";
+import cartSlice from "./cart/cartSlice";
 
 const persistConfig = {
   key: "root",
@@ -8,16 +11,15 @@ const persistConfig = {
 };
 
 const reducers = combineReducers({
-  recommended: recommendedReducer,
-  rooms: roomsReducer,
+  recommended: recommendedSlice,
+  rooms: roomsSlice,
+  cart: cartSlice,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export const store = configureStore({
-  reducer: {
-    persistedReducer,
-  },
+  reducer: persistedReducer,
 });
 
 export const persistor = persistStore(store);

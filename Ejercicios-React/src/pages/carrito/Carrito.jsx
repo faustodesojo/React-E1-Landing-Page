@@ -1,11 +1,13 @@
-import React, { useContext, useState } from 'react';
-import { CartContext } from '../../context/ShoppingCartContext';
-import { ButtonsContainer, CartContainer, ItemContainer, ItemDetails, Name, SuccessMessage } from './style';
+import React, { useState } from 'react';
+import { ButtonsContainer, CartContainer, CheckIn, CheckOut, ItemContainer, ItemDetails, Name, SuccessMessage } from './style';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeFromCart } from '../../redux/cart/cartSlice';
 
 export const Carrito = () => {
-  const [cart, setCart] = useContext(CartContext);
+  const cart = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
   const [reserveMessage, setReserveMessage] = useState('');
-
+  
   const calculateTotalPrice = (item) => {
     const startDate = new Date(item.startDate);
     const endDate = new Date(item.endDate);
@@ -17,49 +19,46 @@ export const Carrito = () => {
       return 0;
     }
   };
-
+  
   const handleReserve = (item) => {
-    setCart((prevCart) => prevCart.filter((i) => i.id !== item.id));
+    dispatch(removeFromCart(item));
     setReserveMessage('Reserva exitosa. ¡Muchas gracias!');
     setTimeout(() => {
       setReserveMessage('');
     }, 2000);
   };
-
-  const handleDelete = (itemToDelete) => {
-    const updatedCart = cart.filter((item) => item !== itemToDelete);
-    setCart(updatedCart);
+  
+  const handleDelete = (item) => {
+    dispatch(removeFromCart(item));
   };
   
-
-  const totalPrice = cart.reduce(
-    (acc, curr) => acc + calculateTotalPrice(curr),
-    0
-  );
-
   return (
     <CartContainer>
-        {cart.map((item) => (
+      {cart.length > 0 ? (
+        cart.map((item) => (
           <ItemContainer key={item.id} backgroundImage={item.img}>
             <ItemDetails>
               <Name>{item.name}</Name>
               <div>Precio por noche: ${item.price}</div>
               <div>Cantidad de noches: {
-                !isNaN(new Date(item.endDate).getTime()) && !isNaN(new Date(item.startDate).getTime()) ? 
+                !isNaN(new Date(item.endDate).getTime()) && !isNaN(new Date(item.startDate).getTime()) ?
                 Math.ceil((new Date(item.endDate) - new Date(item.startDate)) / (1000 * 60 * 60 * 24)) : 0
               }</div>
               <div>Cantidad de personas: {item.guests}</div>
               <div>Precio total: ${calculateTotalPrice(item)}</div>
-              <div>Check In: {item.startDate}</div>
-              <div>Check Out: {item.endDate}</div>
+              <CheckIn>Check In:  {item.startDate}</CheckIn>
+              <CheckOut>Check Out:{item.endDate} </CheckOut>
               <ButtonsContainer>
-              <button onClick={() => handleDelete(item)}>Eliminar</button>
-              <button onClick={() => handleReserve(item)}>Reservar</button>
+                <button onClick={() => handleDelete(item)}>Eliminar</button>
+                <button onClick={() => handleReserve(item)}>Reservar</button>
               </ButtonsContainer>
             </ItemDetails>
           </ItemContainer>
-        ))}
-        {reserveMessage && <SuccessMessage>{reserveMessage}</SuccessMessage>}
+        ))
+      ) : (
+        <div>El carrito está vacío</div>
+      )}
+      {reserveMessage && <SuccessMessage>{reserveMessage}</SuccessMessage>}
     </CartContainer>
   );
 };

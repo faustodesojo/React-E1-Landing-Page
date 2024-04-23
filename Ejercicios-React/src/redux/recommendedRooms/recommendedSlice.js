@@ -1,33 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
+// import { recommendedRooms } from "../../data/recommendedRooms";
 
-const initialState = {
-  recommendedRooms: [],
-  isLoading: false,
-  isError: false,
-  errorMsg: "",
-};
+// const initialState = {
+//   recommendedRooms: Array(4)
+//     .fill(0)
+//     .reduce((acc) => {
+//       const IDS = acc.map((value) => value.id);
+//       let newRecommended;
+//       do {
+//         newRecommended = {
+//           ...recommendedRooms[
+//             Math.floor(Math.random() * recommendedRooms.length)
+//           ],
+//         };
+//       } while (IDS.includes(newRecommended.id));
+//       return [...acc, newRecommended];
+//     }, []),
+// };
 
 export const recommendedSlice = createSlice({
-  name: "recommendedRooms",
-  initialState,
-  reducers: {
-    fetchStart: (state) => {
-      state.isLoading = true;
-    },
-    fetchSuccess: (state, action) => {
-      state.isLoading = false;
-      state.isError = false;
-      state.recommendedRooms = action.payload;
-    },
-    fetchFail: (state, action) => {
-      state.isLoading = false;
-      state.isError = true;
-      state.errorMsg = action.payload;
-    },
-  },
+  name: "recommended",
+  // initialState: initialState,
+  // reducers: {
+  //   randoomRecommended: (state) => {
+  //     return state;
+  //   },
+  // },
 });
 
-export const { fetchStart, fetchSuccess, fetchFail } =
-  recommendedSlice.reducers;
-
+export const { randoomRecommended } = recommendedSlice.actions;
 export default recommendedSlice.reducer;

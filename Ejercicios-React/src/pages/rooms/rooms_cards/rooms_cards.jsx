@@ -1,36 +1,15 @@
-import React, { useContext, useState } from "react";
-import { PriceContainer, RoomCardsContainer } from "./styles";
-import { InputsContainer } from "./styles";
-import { RoomInfoContainer } from "./styles";
-import { CartContext } from "../../../context/ShoppingCartContext";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../redux/cart/cartSlice";
+import { InputsContainer, PriceContainer, RoomCardsContainer, RoomInfoContainer } from "./styles";
 
 export const RoomsCards = ({ img, name, description, price, id, guests }) => {
-  const [cart, setCart] = useContext(CartContext);
+  const dispatch = useDispatch();
   const [numberOfNights, setNumberOfNights] = useState(2);
   const [selectedStartDate, setSelectedStartDate] = useState("");
   const [selectedEndDate, setSelectedEndDate] = useState("");
   const [startDateError, setStartDateError] = useState(false);
   const [minimumNightsError, setMinimumNightsError] = useState(false);
-  const addToCart = () => {
-    if (selectedStartDate !== "" && selectedEndDate !== "") {
-      setCart((reservas) => [
-        ...reservas,
-        {
-          id,
-          quantity: 1,
-          price,
-          img,
-          name,
-          description,
-          startDate: selectedStartDate,
-          endDate: selectedEndDate,
-          guests,
-        },
-      ]);
-    } else {
-      setStartDateError(true);
-    }
-  };
 
   const handleStartDateChange = (date) => {
     setSelectedStartDate(date);
@@ -39,7 +18,7 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
     if (numberOfNights < 2) {
       setMinimumNightsError(true);
     } else {
-      setMinimumNightsError(false);
+      minimumNightsError;
     }
 
     setSelectedEndDate(endDate.toISOString().split("T")[0]);
@@ -52,6 +31,26 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   };
 
   const total = price * numberOfNights;
+
+  const handleAddToCart = () => {
+    if (selectedStartDate !== "" && selectedEndDate !== "") {
+      dispatch(
+        addToCart({
+          id,
+          quantity: 1,
+          guests,
+          price,
+          img,
+          name,
+          description,
+          startDate: selectedStartDate,
+          endDate: selectedEndDate,
+        })
+      );
+    } else {
+      setStartDateError(true);
+    }
+  };
 
   return (
     <RoomCardsContainer>
@@ -96,9 +95,10 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
         </InputsContainer>
         {startDateError && <p style={{ color: "red", textAlign: "center" }}>Por favor seleccione la fecha inicial</p>}
         <PriceContainer>
-          <button onClick={addToCart}>Reservar</button>
+          <button onClick={handleAddToCart}>Reservar</button>
           <p>Total: ${total}</p>
         </PriceContainer>
+        <p>Cantidad de personas: {guests}</p>
       </RoomInfoContainer>
     </RoomCardsContainer>
   );

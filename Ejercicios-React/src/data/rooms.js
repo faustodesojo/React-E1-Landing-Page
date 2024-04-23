@@ -45,3 +45,5 @@ export const rooms = [
     guests: 4,
   },
 ];
+
+export const totalRooms = rooms.length;

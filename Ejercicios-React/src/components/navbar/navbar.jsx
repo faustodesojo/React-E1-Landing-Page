@@ -1,41 +1,19 @@
 import React, { useContext } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { IoBed, IoClose } from "react-icons/io5";
-import {
-  HomeContainer,
-  NavbarContainer,
-  NavbarLinks,
-  NavbarLink,
-  HamburguerMenu,
-  NavbarList,
-  Links,
-  LinkItem,
-  HomeContainerResponsive,
-} from "./styles";
+import { NavbarContainer, NavbarLinks, Links, LinkItem, HomeContainer, HomeContainerResponsive, HamburguerMenu, NavbarLink, NavbarList } from "./styles";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BurguerContext } from "../../context/hamburguer_menu";
 import { Link } from "react-router-dom";
-import { CartContext } from "../../context/ShoppingCartContext";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
-  const [cart, setCart] = useContext(CartContext);
+  const cart = useSelector((state) => state.cart); 
+  const { click, changeClick } = useContext(BurguerContext);
 
   const quantity = cart.reduce((acc, curr) => {
-    if (!isNaN(curr.quantity)) {
-      return acc + curr.quantity;
-    }
-    return acc;
+    return acc + curr.quantity;
   }, 0);
-  // const quantity = cart.reduce((acc, curr) => {
-  //   if (!isNaN(curr.quantity)) {
-  //     return acc + curr.quantity;
-  //   } else {
-  //     return acc;
-  //   }
-  // }, 0);
-  
-
-  const { click, changeClick } = useContext(BurguerContext);
 
   return (
     <NavbarContainer>

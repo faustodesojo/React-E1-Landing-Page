@@ -1,19 +1,20 @@
-import React from 'react'
 import { Habitacion } from './Habitacion'
-import { rooms } from '../data/rooms'
 import { HabitacionesContainer } from './style'
+import { useSelector } from 'react-redux'
+
 
 export const Habitaciones = () => {
+  let  rooms = useSelector((state) => state.rooms.rooms)
   return (
     <HabitacionesContainer>
-        {rooms.map((habitacion)=> 
+      {rooms.map((habitacion) =>
         <Habitacion
-        img={habitacion.img}
-        name={habitacion.name}
-        key={habitacion.id}
-         />
-        )
-    }
+          img={habitacion.img}
+          name={habitacion.name}
+          key={habitacion.id}
+        />
+      )
+      }
     </HabitacionesContainer>
   )
 }
