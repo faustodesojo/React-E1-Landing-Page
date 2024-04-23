@@ -42,8 +42,8 @@ export const Navbar = () => {
               <button>
                 <BiSolidUser></BiSolidUser>
                 <span>Registrarse</span>
-              </button>
-              <Link to={"/carrito"}>
+              </button> 
+              <Link to="carrito">
                 <button>
                   <IoBed></IoBed>
                   <span>Reservas</span>
@@ -60,7 +60,7 @@ export const Navbar = () => {
             <BiSolidUser></BiSolidUser>
             <span>Registrarse</span>
           </button>
-          <Link to={"/carrito"}>
+          <Link to="carrito">
             <button>
               <IoBed></IoBed>
               <span>Reservas</span>
