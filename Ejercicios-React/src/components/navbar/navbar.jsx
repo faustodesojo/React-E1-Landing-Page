@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { IoBed, IoClose } from "react-icons/io5";
 import { NavbarContainer, NavbarLinks, Links, LinkItem, HomeContainer, HomeContainerResponsive, HamburguerMenu, NavbarLink, NavbarList } from "./styles";

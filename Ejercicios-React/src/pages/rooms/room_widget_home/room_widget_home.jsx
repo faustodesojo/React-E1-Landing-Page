@@ -1,8 +1,7 @@
 import { RoomsCards } from '../rooms_cards/rooms_cards';
 import { recommendedRooms } from '../../../data/recommendedRooms';
 import { Button, RoomWidgetContainer } from './styles';
-import { Link } from 'react-router-dom';
-import { Habitaciones } from '../../../filer_rooms/habitaciones';
+import { Habitaciones } from '../../../filer_rooms/Habitaciones';
 
 export const RoomsWidgetHome = () => {
   return (
