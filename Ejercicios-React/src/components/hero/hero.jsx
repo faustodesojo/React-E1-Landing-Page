@@ -1,5 +1,6 @@
 import React from "react";
 import { HeroContainer } from "./styles";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -16,9 +17,9 @@ export const Hero = () => {
           en Summer Dream´s y disfrutar de la serenidad de la costa argentina.
           ¡Esperamos darte la bienvenida pronto!
         </p>
-        <a href="rooms">
+        <Link to="/rooms">
           <button>Habitaciones</button>
-        </a>
+        </Link>
       </div>
       <img
         src="https://yourfiles.cloud/uploads/e203a9912ba1a647c2d83afe42a739af/habitacion-summer.jpg"

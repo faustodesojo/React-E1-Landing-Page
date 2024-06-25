@@ -2,6 +2,7 @@ import { RoomsCards } from '../rooms_cards/rooms_cards';
 import { recommendedRooms } from '../../../data/recommendedRooms';
 import { Button, RoomWidgetContainer } from './styles';
 import { Habitaciones } from '../../../filer_rooms/Habitaciones';
+import { Link } from 'react-router-dom';
 
 export const RoomsWidgetHome = () => {
   return (
@@ -13,9 +14,9 @@ export const RoomsWidgetHome = () => {
           <RoomsCards key={room.id} {...room} />
         ))}
       </div>
-      <a href="rooms">
+      <Link to="/rooms">
         <Button>Ver Más</Button>
-      </a>
+      </Link>
     </RoomWidgetContainer>
   );
 };
