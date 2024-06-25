@@ -13,7 +13,7 @@ export const RoomsWidgetHome = () => {
           <RoomsCards key={room.id} {...room} />
         ))}
       </div>
-      <a href="Rooms">
+      <a href="rooms">
         <Button>Ver Más</Button>
       </a>
     </RoomWidgetContainer>

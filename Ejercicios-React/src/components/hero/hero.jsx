@@ -16,7 +16,7 @@ export const Hero = () => {
           en Summer Dream´s y disfrutar de la serenidad de la costa argentina.
           ¡Esperamos darte la bienvenida pronto!
         </p>
-        <a href="Rooms">
+        <a href="rooms">
           <button>Habitaciones</button>
         </a>
       </div>
