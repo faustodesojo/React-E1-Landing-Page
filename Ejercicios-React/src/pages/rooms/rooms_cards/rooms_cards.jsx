@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../redux/cart/cartSlice";
-import { InputsContainer, PriceContainer, RoomCardsContainer, RoomInfoContainer } from "./styles";
+import {
+  InputsContainer,
+  PriceContainer,
+  RoomCardsContainer,
+  RoomInfoContainer,
+} from "./styles";
 
 export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const dispatch = useDispatch();
@@ -10,6 +15,8 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const [selectedEndDate, setSelectedEndDate] = useState("");
   const [startDateError, setStartDateError] = useState(false);
   const [minimumNightsError, setMinimumNightsError] = useState(false);
+  const [loading, setLoading] = useState(false); // Estado para manejar la carga
+  const [serverResponse, setServerResponse] = useState(""); // Estado para manejar la respuesta del servidor
 
   const handleStartDateChange = (date) => {
     setSelectedStartDate(date);
@@ -18,7 +25,7 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
     if (numberOfNights < 2) {
       setMinimumNightsError(true);
     } else {
-      minimumNightsError;
+      setMinimumNightsError(false); // Cambiado a false para ocultar el error cuando es válido
     }
 
     setSelectedEndDate(endDate.toISOString().split("T")[0]);
@@ -32,21 +39,30 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
 
   const total = price * numberOfNights;
 
-  const handleAddToCart = () => {
+  // Función asíncrona simulada para manejar la reserva
+  const handleAddToCart = async () => {
     if (selectedStartDate !== "" && selectedEndDate !== "") {
-      dispatch(
-        addToCart({
-          id,
-          quantity: 1,
-          guests,
-          price,
-          img,
-          name,
-          description,
-          startDate: selectedStartDate,
-          endDate: selectedEndDate,
-        })
-      );
+      setLoading(true);
+
+      // Simula una operación asíncrona
+      setTimeout(() => {
+        dispatch(
+          addToCart({
+            id,
+            quantity: 1,
+            guests,
+            price,
+            img,
+            name,
+            description,
+            startDate: selectedStartDate,
+            endDate: selectedEndDate,
+          })
+        );
+
+        setServerResponse("Reserva realizada con éxito!");
+        setLoading(false);
+      }, 2000); // Simula un retraso de 2 segundos (2000 ms)
     } else {
       setStartDateError(true);
     }
@@ -60,7 +76,7 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
         <p>{description}</p>
         <InputsContainer>
           <div>
-            <label htmlFor="dias">Cuantos días quieres hospedarte?</label>
+            <label htmlFor="dias">¿Cuántos días quieres hospedarte?</label>
             <input
               type="number"
               id="dias"
@@ -85,20 +101,29 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
           </div>
           <div>
             <label htmlFor="fecha-final">Hasta:</label>
-            <input
-              type="date"
-              id="fecha-final"
-              value={selectedEndDate}
-              disabled
-            />
+            <input type="date" id="fecha-final" value={selectedEndDate} disabled />
           </div>
         </InputsContainer>
-        {startDateError && <p style={{ color: "red", textAlign: "center" }}>Por favor seleccione la fecha inicial</p>}
+        {startDateError && (
+          <p style={{ color: "red", textAlign: "center" }}>
+            Por favor seleccione la fecha inicial
+          </p>
+        )}
+        {minimumNightsError && (
+          <p style={{ color: "red", textAlign: "center" }}>
+            La estancia mínima es de 2 noches
+          </p>
+        )}
         <PriceContainer>
-          <button onClick={handleAddToCart}>Reservar</button>
+          <button onClick={handleAddToCart} disabled={loading}>
+            {loading ? "Procesando..." : "Reservar"}
+          </button>
           <p>Total: ${total}</p>
         </PriceContainer>
         <p>Cantidad de personas: {guests}</p>
+        {serverResponse && (
+          <p style={{ color: "green", textAlign: "center" }}>{serverResponse}</p>
+        )}
       </RoomInfoContainer>
     </RoomCardsContainer>
   );
