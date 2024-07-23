@@ -15,8 +15,8 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
   const [selectedEndDate, setSelectedEndDate] = useState("");
   const [startDateError, setStartDateError] = useState(false);
   const [minimumNightsError, setMinimumNightsError] = useState(false);
-  const [loading, setLoading] = useState(false); // Estado para manejar la carga
-  const [serverResponse, setServerResponse] = useState(""); // Estado para manejar la respuesta del servidor
+  const [loading, setLoading] = useState(false); 
+  const [serverResponse, setServerResponse] = useState(""); 
 
   const handleStartDateChange = (date) => {
     setSelectedStartDate(date);
@@ -25,7 +25,7 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
     if (numberOfNights < 2) {
       setMinimumNightsError(true);
     } else {
-      setMinimumNightsError(false); // Cambiado a false para ocultar el error cuando es válido
+      setMinimumNightsError(false); 
     }
 
     setSelectedEndDate(endDate.toISOString().split("T")[0]);
@@ -39,12 +39,9 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
 
   const total = price * numberOfNights;
 
-  // Función asíncrona simulada para manejar la reserva
   const handleAddToCart = async () => {
     if (selectedStartDate !== "" && selectedEndDate !== "") {
       setLoading(true);
-
-      // Simula una operación asíncrona
       setTimeout(() => {
         dispatch(
           addToCart({
@@ -62,7 +59,7 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
 
         setServerResponse("Reserva realizada con éxito!");
         setLoading(false);
-      }, 2000); // Simula un retraso de 2 segundos (2000 ms)
+      }, 1000); 
     } else {
       setStartDateError(true);
     }
@@ -120,7 +117,6 @@ export const RoomsCards = ({ img, name, description, price, id, guests }) => {
           </button>
           <p>Total: ${total}</p>
         </PriceContainer>
-        <p>Cantidad de personas: {guests}</p>
         {serverResponse && (
           <p style={{ color: "green", textAlign: "center" }}>{serverResponse}</p>
         )}
